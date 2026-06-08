@@ -1,0 +1,9 @@
+﻿Title: CSE 340 and CSE 355 preparation advice
+Source URL: https://www.reddit.com/r/ASU/comments/w89geu/how_to_prepare_for_cse_355_and_cse_340_what/
+Source type: Reddit / r/ASU student discussion
+
+Student-generated text:
+Students described CSE 340 and CSE 355 as very hard classes that require much more time than earlier difficult courses. For CSE 340, students recommended starting projects on day one and asking TAs for help throughout the project instead of waiting until the deadline. For CSE 355, students recommended studying heavily, watching outside videos, and learning the material deeply. The advice in this thread emphasizes time management, early project work, and active help-seeking.
+
+Notes for RAG:
+This source is useful for questions about the CSE trifecta, CSE 340 projects, CSE 355 studying, and how students prepare for both classes.

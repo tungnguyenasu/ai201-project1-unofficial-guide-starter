@@ -1,0 +1,9 @@
+﻿Title: CSE 205 professor advice
+Source URL: https://www.reddit.com/r/ASU/comments/qdk2wz/cse_205_feng_vs_navabi/
+Source type: Reddit / r/ASU student discussion
+
+Student-generated text:
+Students compared CSE 205 professors Feng and Navabi. Several students recommended Navabi, saying she is caring, wants students to succeed, and has fair grading support through TAs. One student said her lectures can be dry, but the material itself is also fundamental and dry. Another student said Navabi's tests are open note and that the TAs are helpful. Students also warned that academic dishonesty is taken seriously. Some students said Feng is fine, but her exams can be harder or more code-heavy.
+
+Notes for RAG:
+This source is useful for questions about CSE 205 professor choice, exam difficulty, TA support, and whether the course is manageable.

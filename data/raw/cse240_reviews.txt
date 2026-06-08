@@ -1,0 +1,10 @@
+﻿Title: CSE 240 professor and workload advice
+Source URL 1: https://www.reddit.com/r/ASU/comments/1ixpih7/review_of_different_cs_professors/
+Source URL 2: https://www.reddit.com/r/ASU/comments/17i0g9l/cse_240/
+Source type: Reddit / r/ASU student discussions
+
+Student-generated text:
+Students gave positive comments about David Claveau for CSE 240. One student described him as involved in teaching because he walks around the room and helps students while teaching. The same student said the assignments were pretty easy and rated him highly, although they warned that email responses may not be reliable and students may be better off talking to him in person. Another discussion said Claveau knows the material, is nice and funny, and does not assign too much work, but his exams can be hard. Some students warned against taking certain other professors when possible.
+
+Notes for RAG:
+This source is useful for questions about CSE 240 workload, professor helpfulness, exam difficulty, and whether students recommend Claveau.

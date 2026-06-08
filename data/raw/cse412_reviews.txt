@@ -1,0 +1,10 @@
+﻿Title: CSE 412 database management usefulness and workload
+Source URL 1: https://www.reddit.com/r/ASU/comments/asyu8n/cse_412_database_management_with_dr_nakamura/
+Source URL 2: https://www.reddit.com/r/ASU/comments/spanaw/cse_412_434_445/
+Source type: Reddit / r/ASU student discussions
+
+Student-generated text:
+Students described CSE 412 Database Management as easier than some other upper-division CSE classes, but opinions varied on how useful or difficult it felt. One student said CSE 412 with Nakamura was easier to get an A in and focused on basic SQL and Access. Another student said that if someone wants a useful class with moderate difficulty and standard grading, CSE 412 is a reasonable choice. However, another student said CSE 412 felt harder for them than the trifecta, showing that experience can vary by professor, semester, and student background.
+
+Notes for RAG:
+This source is useful for questions about CSE 412 workload, usefulness, SQL content, difficulty compared with other electives, and professor differences.

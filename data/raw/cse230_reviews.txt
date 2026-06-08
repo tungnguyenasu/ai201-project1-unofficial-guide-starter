@@ -1,0 +1,10 @@
+﻿Title: CSE 230 student frustration and preparation advice
+Source URL 1: https://www.reddit.com/r/ASU/comments/1apat4w/cse_230_makes_me_regret_coming_to_asu/
+Source URL 2: https://www.reddit.com/r/ASU/comments/gzj304/any_advice_on_prepping_for_cse_230/
+Source type: Reddit / r/ASU student discussions
+
+Student-generated text:
+Some students described CSE 230 as poorly organized and frustrating, especially when the course moved slowly or did not quickly connect to MIPS coding. One student said the course made them feel like they were teaching themselves using YouTube, books, and GitHub. Other students gave more practical advice and said CSE 230 is a concepts-heavy class similar to CSE 120. Students recommended learning basic MIPS early and reviewing number conversions such as hexadecimal to decimal and decimal to hexadecimal. One commenter said the class is not extremely hard if students understand the concepts, but cheat sheets alone will not help much.
+
+Notes for RAG:
+This source is useful for questions about CSE 230 difficulty, MIPS preparation, assembly language, and whether students feel the course is well organized.

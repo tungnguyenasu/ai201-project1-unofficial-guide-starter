@@ -1,0 +1,10 @@
+﻿Title: CSE 365 workload and summer advice
+Source URL 1: https://www.reddit.com/r/ASU/comments/gdsrbw/cse_365_doable_during_summer/
+Source URL 2: https://www.reddit.com/r/ASU/comments/1i8h9ss/what_is_the_hardest_class_for_cs_majors_why_do/
+Source type: Reddit / r/ASU student discussions
+
+Student-generated text:
+Students described CSE 365 as coding-intensive and time-consuming. Some students recommended taking it with Adam Doupe when possible and said the class can be good with the right professor. Other students warned that summer versions of important courses can become either watered down or extremely compressed and difficult. In a thread about the hardest CS classes, students often mentioned CSE 365 and CSE 340 as classes that require a large time commitment. Some students said CSE 365 can feel like a very heavy workload, especially in newer versions of the course.
+
+Notes for RAG:
+This source is useful for questions about CSE 365 difficulty, coding workload, professor choice, summer scheduling, and whether to pair it with other hard classes.

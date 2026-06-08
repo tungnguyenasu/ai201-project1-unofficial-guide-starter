@@ -1,0 +1,9 @@
+﻿Title: CSE 110 student advice
+Source URL: https://www.reddit.com/r/ASU/comments/1cly644/cse_110/
+Source type: Reddit / r/ASU student discussion
+
+Student-generated text:
+Students in this thread said CSE 110 is usually similar across professors because much of the course uses common prerecorded material. One student said the professor did not really change the educational experience much, although they had a good experience with Dr. Meuth. Another student agreed that because CSE 110 is a general intro-level programming course, the instructor may not make as large of a difference as in later CSE classes. A different commenter said students can also consider taking the equivalent course at a community college, where it may feel easier.
+
+Notes for RAG:
+This source is useful for questions about whether CSE 110 depends heavily on professor choice, whether it is difficult, and whether students recommend taking it elsewhere.

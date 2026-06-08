@@ -1,0 +1,9 @@
+﻿Title: CSE 355 theory class preparation
+Source URL: https://www.reddit.com/r/ASU/comments/13yvlki/how_do_i_prepare_for_cse_355/
+Source type: Reddit / r/ASU student discussion
+
+Student-generated text:
+Students said CSE 355 is hard because it is unlike many previous CS classes. One student said Colbourn was fair and nice, and recommended going to office hours and asking questions. Other students recommended EasyTheory videos, the Sipser textbook, Neso Academy, and reviewing CSE 120 finite state machines and MAT 243 proofs. Students said the class involves automata, Turing machines, state diagrams, logic, and proof-style thinking. Some students said it is very hard, but manageable with attention, review, and outside resources.
+
+Notes for RAG:
+This source is useful for questions about why CSE 355 is hard, how to prepare, what resources students recommend, and whether office hours help.

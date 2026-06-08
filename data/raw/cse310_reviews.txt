@@ -1,0 +1,11 @@
+﻿Title: CSE 310 difficulty and preparation
+Source URL 1: https://www.reddit.com/r/ASU/comments/e9q52j/anyone_nervous_about_taking_xue_for_cse_310/
+Source URL 2: https://www.reddit.com/r/ASU/comments/gj3tp9/cse_310_in_the_fall/
+Source URL 3: https://www.reddit.com/r/ASU/comments/18gk8ok/preparation_for_cse310/
+Source type: Reddit / r/ASU student discussions
+
+Student-generated text:
+Students described CSE 310 as one of the first CS classes that feels genuinely hard because of the jump in difficulty. Several students said success depends on putting in enough time, reading the textbook, attending class, attending recitation, and starting projects early. Students said runtime analysis, Big O, Big Omega, Big Theta, heaps, graph algorithms, and red-black trees can be important topics. Other students recommended practicing C++ and learning debugging tools before the course. Students also said the class is more about understanding algorithms than memorizing exact implementations.
+
+Notes for RAG:
+This source is useful for questions about CSE 310 difficulty, algorithms topics, project preparation, C++, and study strategy.

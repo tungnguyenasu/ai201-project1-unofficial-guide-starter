@@ -1,0 +1,10 @@
+﻿Title: CSE 360 workload and professor experience
+Source URL 1: https://www.reddit.com/r/ASU/comments/13c4dfj/cse_360_or_cse_365_with_cse_310_and_cse_230/
+Source URL 2: https://www.reddit.com/r/ASU/comments/1ctun95/can_anyone_give_me_an_honest_review_of_cse_360/
+Source type: Reddit / r/ASU student discussions
+
+Student-generated text:
+Students gave mixed reviews of CSE 360. Some students said the course can be doable and easier than expected, but the group project can take a long time if students try to build it carefully. One student said quizzes are annoying but homework is not too bad. Another student said the bulk of the class is a group project with multiple phases, lots of writing, and software implementation near the end. Students also discussed professor-specific concerns and said that professor choice can strongly affect the experience.
+
+Notes for RAG:
+This source is useful for questions about CSE 360 workload, group projects, quizzes, homework, and professor-dependent difficulty.
