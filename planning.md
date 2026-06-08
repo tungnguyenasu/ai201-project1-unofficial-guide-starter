@@ -191,6 +191,59 @@ I will review and modify all AI-generated code to match my actual file structure
 
 **Milestone 3 — Ingestion and chunking:**
 
+I built a document ingestion pipeline that loads `data/raw/*.txt`, cleans the student discussion text, extracts source metadata, and produces a single clean chunk per document. The pipeline writes the processed chunks to `data/processed/chunks.jsonl`, and I verified that each chunk contains readable course advice without metadata labels or unrelated boilerplate.
+
 **Milestone 4 — Embedding and retrieval:**
 
+I embedded the processed chunks using `sentence-transformers` with the `all-MiniLM-L6-v2` model and stored them in a persistent ChromaDB collection named `asu_cs_unofficial_guide`. I also added a retrieval test script that queries the vector store and confirms that course-specific questions return the correct course chunk near the top.
+
 **Milestone 5 — Generation and interface:**
+
+I integrated grounded generation and a small web UI for manual testing:
+
+- Implemented `src/query.py` which:
+   - retrieves the top-5 chunks from ChromaDB via `query_vector_store()`;
+   - applies a pre-call refusal when the best retrieval distance is above 0.70 to avoid low-quality prompts;
+   - formats retrieved chunks into numbered context blocks with `course`, `source_file`, and `source_url` metadata;
+   - builds a grounded prompt that explicitly instructs the LLM to "Use ONLY the provided retrieved context" and to refuse when evidence is insufficient.
+- Integrated the Groq Python SDK to call a kept LLM (model configured in code) with `temperature=0.1` and conservative `max_tokens`.
+- Built a Gradio interface in `app.py` that accepts a question, calls `ask()` from `src/query.py`, and displays the grounded answer, the `sources` list, and the retrieved chunks for debugging and verification.
+
+Testing and results:
+
+- Ran the evaluation suite `scripts/run_test_queries.py` with the five questions from `planning.md`. The test output was saved to `data/demo_outputs/test_run.txt` and a full evaluation table was added to `README.md`.
+- Observations from the tests:
+   - Accurate answers for: CSE 310, CSE 340, CSE 355 (answers grounded in course-specific chunks).
+   - Partially accurate: CSE 360 (retrieval returned a CSE 365 chunk first, causing some mixing of nearby-course content).
+   - Partially accurate: "Which classes to avoid" — system recommended CSE 340 and CSE 365 (reasonable) but missed a clear signal for CSE 355 in the top-ranked evidence.
+   - Out-of-scope question ("Which dorm has the best food?") correctly resulted in a refusal due to low retrieval relevance.
+
+Root-cause and limitations:
+
+- The main failure mode seen during Milestone 5 is retrieval confusion between semantically similar course threads (e.g., CSE 360 vs CSE 365). Contributing factors: small corpus size (10 files), coarse chunking (one chunk per file), and embedding-model limitations for fine-grained course disambiguation.
+
+Next steps to improve grounding and accuracy:
+
+1. Expand the corpus with more course-specific threads and instructor/term variants.
+2. Move to paragraph-aware chunking for longer thread texts so course-specific sentences can be independently retrieved.
+3. Add a metadata reranker that boosts chunks whose `course` metadata exactly matches a course identifier detected in the user question.
+4. Evaluate stronger embeddings or a hybrid lexical+semantic retriever to reduce semantic collisions.
+5. Tune the refusal threshold and re-run evaluation to measure precision/recall tradeoffs.
+
+Quick run instructions (developer):
+
+1. Ensure `.env` contains a valid `GROQ_API_KEY` (do not commit `.env`).
+2. Rebuild or reuse embeddings: `python src/vector_store.py` (only if you change embeddings or add chunks).
+3. Start the UI: 
+
+```powershell
+.\.venv\Scripts\python app.py
+```
+
+4. Run the automated test suite: 
+
+```powershell
+.\.venv\Scripts\python scripts\run_test_queries.py
+```
+
+This completes Milestone 5 implementation and evaluation notes.
