@@ -33,55 +33,42 @@ def extract_course_from_filename(path: Path) -> str:
 def clean_text(text: str) -> str:
     """
     Cleans copied Reddit / student discussion text.
-    Removes light formatting noise while keeping the actual student-generated content.
+    Keeps only the actual student-generated content.
     """
     text = html.unescape(text)
-
-    # Remove markdown/code fence artifacts if copied accidentally
+    text = text.lstrip("\ufeff")
     text = text.replace("```", "")
-
-    # Remove HTML tags if any were pasted
     text = re.sub(r"<[^>]+>", " ", text)
 
-    # Remove common Reddit/UI boilerplate if it appears
-    boilerplate_patterns = [
-        r"Log In",
-        r"Sign Up",
-        r"Sort by:",
-        r"View community ranking.*",
-        r"Open menu",
-        r"Skip to main content",
-        r"Share",
-        r"Save",
-        r"Hide",
-        r"Report",
-        r"Give Award",
-    ]
-
-    for pattern in boilerplate_patterns:
-        text = re.sub(pattern, " ", text, flags=re.IGNORECASE)
-
-    # Normalize whitespace but preserve paragraph breaks
-    text = re.sub(r"\r\n", "\n", text)
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    text = re.sub(r"[ \t]+", " ", text)
+    # Remove everything after Notes for RAG because that is not source evidence
+    text = re.split(r"\n\s*Notes for RAG\s*:", text, flags=re.IGNORECASE)[0]
 
     lines = []
     for line in text.splitlines():
         line = line.strip()
 
-        # Keep source/title lines out of the chunk body because they are metadata.
-        if line.lower().startswith("source url"):
-            continue
-        if line.lower().startswith("source type"):
-            continue
-        if line.lower().startswith("title:"):
+        if not line:
             continue
 
-        if line:
-            lines.append(line)
+        lower = line.lower()
 
-    return "\n\n".join(lines).strip()
+        # Remove metadata/header lines from embedded content
+        if lower.startswith("title:"):
+            continue
+        if lower.startswith("source url"):
+            continue
+        if lower.startswith("source type"):
+            continue
+        if lower.startswith("student-generated text"):
+            continue
+
+        lines.append(line)
+
+    cleaned = "\n\n".join(lines)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+    cleaned = re.sub(r"[ \t]+", " ", cleaned)
+
+    return cleaned.strip()
 
 def split_long_text_with_overlap(text: str, target_size: int, overlap: int) -> List[str]:
     """
@@ -109,34 +96,22 @@ def split_long_text_with_overlap(text: str, target_size: int, overlap: int) -> L
 def chunk_document(text: str) -> List[str]:
     """
     Paragraph-aware chunking.
-    Combines short paragraphs and splits very long ones.
+    For short documents, keep the whole document as one chunk.
+    For longer documents, split by paragraphs without cutting words.
     """
     paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+
     chunks = []
     current = ""
 
     for paragraph in paragraphs:
-        if len(paragraph) > TARGET_CHUNK_SIZE:
-            if len(current.strip()) >= MIN_CHUNK_SIZE:
-                chunks.append(current.strip())
-                current = ""
-
-            long_chunks = split_long_text_with_overlap(
-                paragraph,
-                TARGET_CHUNK_SIZE,
-                CHUNK_OVERLAP,
-            )
-            chunks.extend(long_chunks)
-            continue
-
         if len(current) + len(paragraph) + 2 <= TARGET_CHUNK_SIZE:
             current = f"{current}\n\n{paragraph}".strip() if current else paragraph
         else:
             if len(current.strip()) >= MIN_CHUNK_SIZE:
                 chunks.append(current.strip())
 
-            overlap_text = current[-CHUNK_OVERLAP:] if current else ""
-            current = f"{overlap_text}\n\n{paragraph}".strip()
+            current = paragraph
 
     if len(current.strip()) >= MIN_CHUNK_SIZE:
         chunks.append(current.strip())
